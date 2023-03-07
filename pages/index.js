@@ -1,28 +1,28 @@
-import { indexQuery } from '../lib/queries.js'
+import { indexQuery, globalQuery } from '../lib/queries.js'
 import { getClient, overlayDrafts } from '../lib/sanity.server'
-import { PreviewSuspense } from 'next-sanity/preview'
-import { lazy } from 'react'
-import Landing from '../components/landing'
+import Layout from '@/components/organisms/Layout.js'
 
-const LandingPreview = lazy(() => import('../components/landing-preview'))
-
-export default function IndexPage({ allPosts, preview }) {
-  if (preview) {
-    return (
-      <PreviewSuspense fallback="Loading...">
-        <LandingPreview allPosts={allPosts} />
-      </PreviewSuspense>
-    )
+export default function IndexPage({ pageContent, globalContent }) {
+  console.log(globalContent, pageContent, 'FE')
+  const seo = {
+    title: 'T',
+    description: 'D',
   }
 
-  return <Landing allPosts={allPosts} />
+  return (
+    <Layout seo={seo} {...globalContent}>
+      <section>
+        <p className="">Content</p>
+      </section>
+    </Layout>
+  )
 }
 
-export async function getStaticProps({ preview = false }) {
-  const allPosts = overlayDrafts(await getClient(preview).fetch(indexQuery))
+export async function getStaticProps() {
+  const globalContent = overlayDrafts(await getClient().fetch(globalQuery))
+  const pageContent = overlayDrafts(await getClient().fetch(indexQuery))
   return {
-    props: { allPosts, preview },
-    // If webhooks isn't setup then attempt to re-generate in 1 minute intervals
-    revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 60,
+    props: { globalContent, pageContent },
+    revalidate: 10,
   }
 }

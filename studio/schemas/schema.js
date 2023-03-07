@@ -17,6 +17,7 @@ import bodyPortableFeaturedLink from './objects/bodyPortableFeaturedLink'
 import mainImage from './objects/mainImage'
 import simpleImage from './objects/simpleImage'
 import seo from './objects/seo'
+import seoPitch from './objects/seoPitch'
 import mainMenu from './objects/mainMenu'
 import mainMenuPage from './objects/mainMenuPage'
 import content from './objects/content'
@@ -32,7 +33,6 @@ import inlineText from './objects/inlineText'
 import inlineTextListItem from './objects/inlineTextListItem'
 import contactInfo from './objects/contactInfo'
 import contactPerson from './objects/contactPerson'
-
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -53,6 +53,7 @@ export default createSchema({
     bodyPortableRollingTextWord,
     bodyPortableFeaturedLink,
     seo,
+    seoPitch,
     mainMenu,
     mainMenuPage,
     content,
@@ -67,8 +68,8 @@ export default createSchema({
     inlineText,
     inlineTextListItem,
     contactInfo,
-    contactPerson
+    contactPerson,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
-  ])
+  ]),
 })

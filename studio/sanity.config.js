@@ -1,8 +1,8 @@
-import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
-import { visionTool } from '@sanity/vision'
+import {defineConfig} from 'sanity'
+import {deskTool} from 'sanity/desk'
+import {visionTool} from '@sanity/vision'
 
-import { resolveProductionUrl } from './resolveProductionUrl'
+import {resolveProductionUrl} from './resolveProductionUrl'
 
 // document schemas
 import pages from './schemas/documents/pages'
@@ -17,6 +17,7 @@ import bodyPortableFeaturedLink from './schemas/objects/bodyPortableFeaturedLink
 import mainImage from './schemas/objects/mainImage'
 import simpleImage from './schemas/objects/simpleImage'
 import seo from './schemas/objects/seo'
+import seoPitch from './schemas/objects/seoPitch'
 import mainMenu from './schemas/objects/mainMenu'
 import mainMenuPage from './schemas/objects/mainMenuPage'
 import content from './schemas/objects/content'
@@ -57,6 +58,7 @@ export default defineConfig({
       mainImage,
       simpleImage,
       seo,
+      seoPitch,
       mainMenu,
       mainMenuPage,
       content,
@@ -71,7 +73,7 @@ export default defineConfig({
       inlineText,
       inlineTextListItem,
       contactInfo,
-      contactPerson
+      contactPerson,
     ],
   },
   document: {

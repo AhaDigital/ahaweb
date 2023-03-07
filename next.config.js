@@ -6,4 +6,14 @@ module.exports = {
       { hostname: 'source.unsplash.com' },
     ],
   },
+  i18n: {
+    locales: ['sv', 'en'],
+    defaultLocale: 'sv',
+    localeDetection: false,
+  },
+  trailingSlash: true,
+  styledComponents: {
+    ssr: true,
+    fileName: true,
+  },
 }

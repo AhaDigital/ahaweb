@@ -1,13 +1,11 @@
 let productionUrl
 try {
-  productionUrl = new URL(
-    import.meta.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000'
-  )
+  productionUrl = new URL(import.meta.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000')
 } catch (err) {
   console.error('Invalid productionUrl', err)
 }
 
-export function resolveProductionUrl(prev, { document }) {
+export function resolveProductionUrl(prev, {document}) {
   if (!productionUrl || !document.slug?.current) {
     return prev
   }

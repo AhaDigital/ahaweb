@@ -10,22 +10,26 @@ export default {
     },
     {
       name: 'mainMenu',
-      type: 'mainMenu'
+      type: 'mainMenu',
     },
     {
       name: 'footerMenu',
-      type: 'mainMenu'
+      type: 'mainMenu',
     },
     {
       name: 'contactInfo',
-      type: 'contactInfo'
-    }
+      type: 'contactInfo',
+    },
+    {
+      name: 'seoPitch',
+      type: 'seoPitch',
+    },
   ],
   preview: {
     prepare() {
       return {
         title: 'Inställningar',
       }
-    }
-  }
+    },
+  },
 }
